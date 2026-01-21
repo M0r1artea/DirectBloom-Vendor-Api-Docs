@@ -30,7 +30,7 @@ You may determine the keys. In this example we use access-token and username/pas
   "version": "1.0",
   "order_id": 1111111111111,
   "order_number": "XXXXXX",
-  "vendor": "Esmerelda",
+  "vendor": "Test Vendor",
   "currency": "USD",
   "ship_to": {
     "name": "Test Company",
@@ -63,10 +63,10 @@ You may determine the keys. In this example we use access-token and username/pas
       "properties": {
         "box_type": "QB",
         "units_box": "25",
-        "Delivery Date": "12-17-2025",
-        "Ship Date": "12-15-2025",
-        "Available From": "11/12/2025",
-        "Available To": "1/6/2026"
+        "delivery_date": "12-17-2025",
+        "ship_date": "12-15-2025",
+        "available_from": "11/12/2025",
+        "available_to": "1/6/2026"
       }
     }
   ]

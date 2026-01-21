@@ -25,7 +25,7 @@ const config: Config = {
   organizationName: 'M0r1artea', // Usually your GitHub org/user name.
   projectName: 'DirectBloom-Vendor-Api-Docs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you

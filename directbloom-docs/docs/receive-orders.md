@@ -7,16 +7,27 @@ sidebar_position: 3
 
 When a customer places an order on DirectBloom, they are able to add products from multiple vendors. Kennicott has
 provided a service that will separate the line items by vendor and send those orders to the vendors respectively. This 
-document explains the payload, a vendor should expect to receive as well as how to register their endpoint to receive
+document explains the payload a vendor should expect to receive as well as how to register their endpoint to receive
 that payload.
 
+:::warning
+These service are currently under development and subject to change. Any changes to the services will immediately be reflected here until 1st prod launch
+:::
+
+## Registration
+Kennicott will need to know the url as well as authorization information to send orders. Please provide the url, the
+type of authorization (AccessToken or Username/Password) and the header keys they are supposed to be sent in to
+david@devmercs.com when your endpoint is ready to test.
+
 ## Request Headers
-You may determine the keys. In this example we use access-token and username/password as the headers
+Vendor opted to use "access-token" as their authorization header 
+
 ```
 {
     "access-token": "XXXXXXXXXXXX"
 }
 ```
+Vendor opted to use "username" and "password" as their authorization headers
 ```
 {
     "username": "XXXXXXXXXXXX",
@@ -79,8 +90,3 @@ Please respond with a status code of 200 if successful
 ## Error Handling
 Please provide details on the error occurred using standardized Rest API status codes. 
 ie: Unauthorzied/Forbidden for auth errors, Bad Request for payload processing, and 500s for internal errors
-
-## Registration
-Kennicott will need to know the url as well as authorization information to send orders. Please provide the url, the
-type of authorization (AccessToken or Username/Password) and the header keys they are supposed to be sent in to 
-david@devmercs.com when your endpoint is ready to test. 

@@ -1,10 +1,11 @@
 ---
 sidebar_label: 'Manage Inventory'
-sidebar_position: 2
+sidebar_position: 5
 ---
 
 # Manage Inventory
-To create/update products and their availability on DirectBloom, vendors will use 
-Shopify's GraphQL Admin API
-
-## Shopify Product Documentation
+Documentation coming soon...
+ 
+:::warning
+These service are currently under development and subject to change. Any changes to the services will immediately be reflected here until 1st prod launch
+:::

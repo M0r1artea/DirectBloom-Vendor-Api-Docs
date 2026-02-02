@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Product Update'
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 # Product Update API Documentation

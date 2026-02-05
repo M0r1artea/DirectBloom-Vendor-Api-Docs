@@ -43,7 +43,6 @@ Vendor opted to use "username" and "password" as their authorization headers
   "order_number": "XXXXXX",
   "vendor": "Test Vendor",
   "currency": "USD",
-  "price": "63.70",
   "ship_to": {
     "name": "Test Company",
     "address1": "1700 W Grand Ave",
@@ -62,7 +61,8 @@ Vendor opted to use "username" and "password" as their authorization headers
     "payment_type": "3",
     "contact": "Blossom Events & Florist"
   },
-  "requested_ship_date": "2025-12-15",
+  "delivery_date": "2025-12-17",
+  "ship_date": "2025-12-15",
   "line_items": [
     {
       "line_item_id": 16585974841657,
@@ -72,12 +72,10 @@ Vendor opted to use "username" and "password" as their authorization headers
       "title": "Hydrangea Lime Green Premium",
       "quantity": 1,
       "grams": 4480,
-      "price": "63.70",
       "properties": {
+        "item_price": "1.80",
         "box_type": "QB",
-        "units_box": "25",
-        "delivery_date": "2025-12-17",
-        "ship_date": "2025-12-15",
+        "units_per_box": "25",
         "available_from": "2025-11-12",
         "available_to": "2026-01-06"
       }

@@ -43,6 +43,7 @@ Vendor opted to use "username" and "password" as their authorization headers
   "order_number": "XXXXXX",
   "vendor": "Test Vendor",
   "currency": "USD",
+  "price": "63.70",
   "ship_to": {
     "name": "Test Company",
     "address1": "1700 W Grand Ave",
@@ -72,6 +73,7 @@ Vendor opted to use "username" and "password" as their authorization headers
       "title": "Hydrangea Lime Green Premium",
       "quantity": 1,
       "grams": 4480,
+      "price": "63.70",
       "properties": {
         "item_price": "1.80",
         "box_type": "QB",

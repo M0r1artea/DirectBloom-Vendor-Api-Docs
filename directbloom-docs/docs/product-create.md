@@ -31,88 +31,44 @@ The request body is a JSON object. Fields marked with a `*` are optional; if omi
 
 ### 3.1 Top-Level Fields
 
-| Field | Type                   | Required | Description                                                                                                 |
-| :--- |:-----------------------|:---------|:------------------------------------------------------------------------------------------------------------|
-| `title` | String                 | Yes      | The public title of the product.                                                                            |
-| `description_html`| String*                | No       | The product description in HTML format.                                                                     |
-| `type` | String                 | Yes      | Product category (e.g., "Flowers", "Greenery").                                                             |
-| `published_status`| String                 | Yes      | Set to `ACTIVE` or `DRAFT`.                                                                                 |
-| `images` | Array[Str]             | Yes      | A list of direct image URLs.                                 |
-| `product_options` | Array[Product Options] | Yes      | Defines the options (e.g., Size, Color) used by variants. |
-| `variants` | Array[Variants]        | Yes      | Variant-specific data including SKUs and pricing.                                                           |
-| `metafields` | Object                 | Yes      | Custom attributes (specifications, origins, etc.).                                                          |
+| Field                    | Type                        | Required   | Description                                                        |
+|:-------------------------|:----------------------------|:-----------|:-------------------------------------------------------------------|
+| `title`                  | String                      | Yes        | The public title of the product.                                   |
+| `descriptionHTML`        | String*                     | No         | The product description in HTML format.                            |
+| `type`                   | String                      | Yes        | Product category (e.g., "Flowers", "Greenery").                    |
+| `published_status`       | String                      | Yes        | Set to `ACTIVE` or `DRAFT`.                                        |
+| `sku`                    | String                      | Yes        | Vendor identifier for referencing product attributes in the future |
+| `price`                  | String                      | Yes        | Vendor price of the product                                        |
+| `inventory_quantities`   | Array[Inventory Quantity]*  | No         | Array of inventory amounts per location                            |
+| `images`                 | Array[Str]                  | Yes        | A list of direct image URLs.                                       |
+| `metafields`             | Object                      | Yes        | Custom attributes (specifications, origins, etc.).                 |
 
 ---
 
 ## 4. Sub-Object Definitions
 
-### 4.1 Product Options
-Defines the structure of your product variants.
-
-| Field              | Type       | Required | Description                                        |
-|:-------------------|:-----------|:---------|:---------------------------------------------------|
-| `name`             | String     | Yes      | The name of the options available for this product |
-| `position`         | Int        | Yes      | Position in display list of options                |
-| `values`           | Array[Obj] | Yes      | Array of values for this option                    |
-
-
-```json
-"product_options": [
-  {
-    "name": "Stem Length",
-    "position": 1,
-    "values": [
-      { "name": "60cm" },
-      { "name": "70cm" }
-    ]
-  }
-]
-```
-### 4.2 Variants
+###  4.1 Inventory Quantity
 The location ID must be a valid Shopify Location GID or ID. `inventory_quantities` are optional on product create.
 
 :::info
 set "107939791161" in location for Miami
 :::
 
-#### Variant
-| Field                  | Type                       | Required | Description                                                        |
-|:-----------------------|:---------------------------|:---------|:-------------------------------------------------------------------|
-| `sku`                  | String                     | Yes      | Vendor identifier for referencing product attributes in the future |
-| `price`                | String                     | Yes      | Vendor price of the product                                        |
-| `inventory_quantities` | Array[Inventory Quantity]* | No       | Array of inventory amounts per location                            |
-| `option_values`        | Array[Option Value]        | Yes      | Array of options for this variant                                  |
-
-#### Inventory Quantity
 | Field                  | Type                       | Required | Description                                                  |
 |:-----------------------|:---------------------------|:---------|:-------------------------------------------------------------|
 | `location`             | String                     | Yes      | Location Id where inventory is located. **Use 107939791161** |
 | `quantity`             | Int                        | Yes      | Number of products ready to purchase                         |
 
-#### Option Value
-| Field                  | Type                       | Required | Description                             |
-|:-----------------------|:---------------------------|:---------|:----------------------------------------|
-| `option_name`          | String                     | Yes      | Name of product option                  |
-| `name`                 | String                     | Yes      | Value of option related to this variant |
 
 ```json
-"variants": [
-  {
-    "sku": "VNDR-ROSE-RED-60",
-    "price": "34.99",
-    "option_values": [
-      { "option_name": "Stem Length", "name": "60cm" }
-    ],
     "inventory_quantities": [
       {
         "location": "107939791161",
         "quantity": 250
       }
     ]
-  }
-]
 ```
-### 4.3 Metafields
+### 4.2 Metafields
 The metafields object contains specific product data.
 
 | JSON Key                | Data Type | Description                                  | Notes      |
@@ -168,29 +124,17 @@ The metafields object contains specific product data.
   "description_html": "<h1>Premium Quality</h1><p>Fresh roses from our fields.</p>",
   "type": "Flowers",
   "published_status": "ACTIVE",
+  "sku": "SKU-ROSE-RED-STD",
+  "price": "19.99",
+  "inventory_quantities": [
+    {
+      "location": "107939791161",
+      "quantity": 100
+    }
+  ],
   "images": [
     "[https://example.com/images/roses-hero.jpg](https://example.com/images/roses-hero.jpg)",
     "[https://example.com/images/roses-detail.jpg](https://example.com/images/roses-detail.jpg)"
-  ],
-  "product_options": [
-    {
-      "name": "Size",
-      "position": 1,
-      "values": [{ "name": "Standard" }]
-    }
-  ],
-  "variants": [
-    {
-      "sku": "SKU-ROSE-RED-STD",
-      "price": "19.99",
-      "option_values": [{ "option_name": "Size", "name": "Standard" }],
-      "inventory_quantities": [
-        {
-          "location": "107939791161",
-          "quantity": 100
-        }
-      ]
-    }
   ],
   "metafields": {
     "available_from": "2024-02-01",

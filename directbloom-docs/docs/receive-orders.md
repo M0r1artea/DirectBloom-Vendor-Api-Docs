@@ -35,6 +35,14 @@ Vendor opted to use "username" and "password" as their authorization headers
 }
 ```
 
+## Shipping Method Names
+Below are possible shipping method identifiers
+```json
+FEDEX_2_DAY_AM
+FEDEX_2_DAY
+DirectBloom Indianapolis Pickup (Armellini F110520)
+```
+
 ## Request Body
 ```
 {
@@ -55,7 +63,7 @@ Vendor opted to use "username" and "password" as their authorization headers
     "phone": "+19182316958"
   },
   "shipping_method": {
-    "name": "FedEx 2Day®",
+    "name": "FEDEX_2_DAY",
     "account": "116782936",
     "hold_at_location": "N",
     "service_type": "1",

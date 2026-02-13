@@ -60,12 +60,15 @@ set "107939791161" in location for Miami
 :::
 
 ```json
-"inventory_quantities": [
-  {
-    "location": "107939791161",
-    "quantity": 250
-  }
-]
+{
+  "product_id": "10105035653433",
+  "inventory_quantities": [
+    {
+      "location": "107939791161",
+      "quantity": 250
+    }
+  ]
+}
 ```
 ### 4.2 Metafields
 The metafields object contains specific product data.
@@ -96,24 +99,27 @@ When updating metafields be sure to include all fields already tied to the produ
 
 #### Example
 ```json
-"metafields": {
-  "available_from": "2024-02-01",
-  "available_to": "2024-06-01",
-  "color": "Soft Pink",
-  "grade": "Select",
-  "stems_per_bunch": "10",
-  "units_per_box": "100",
-  "box_type": "QB",
-  "bunches_per_box": "10",
-  "total_units_per_box": "100",
-  "category": "Roses",
-  "supplier_product_code": "VND-ROS-001",
-  "is_available": true,
-  "item_price": "1.25",
-  "shipping_weight": "12.5kg",
-  "box_dimensions": "40x20x20",
-  "variety": "Pink Mondial",
-  "grower_origin_code": "EC-042"
+{
+  "product_id": "10105035653433",
+  "metafields": {
+    "available_from": "2024-02-01",
+    "available_to": "2024-06-01",
+    "color": "Soft Pink",
+    "grade": "Select",
+    "stems_per_bunch": "10",
+    "units_per_box": "100",
+    "box_type": "QB",
+    "bunches_per_box": "10",
+    "total_units_per_box": "100",
+    "category": "Roses",
+    "supplier_product_code": "VND-ROS-001",
+    "is_available": true,
+    "item_price": "1.25",
+    "shipping_weight": "12.5kg",
+    "box_dimensions": "40x20x20",
+    "variety": "Pink Mondial",
+    "grower_origin_code": "EC-042"
+  }
 }
 ```
 

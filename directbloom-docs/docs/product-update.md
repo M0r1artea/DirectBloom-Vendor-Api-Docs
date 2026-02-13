@@ -29,20 +29,24 @@ These service are currently under development and subject to change. Any changes
 
 The request body is a JSON object. Fields marked with a `*` are optional; if omitted, the existing value in Shopify will remain unchanged **unless otherwise noted**.
 
+:::info
+It's preferred that vendors use the product_id field to make updates to their product, however if the vendor does not have Shopify's ProductID, they can still make updates by sku. The response will include the Shopify's ProductID for future updates.
+:::
+
 ### 3.1 Top-Level Fields
 
-| Field                  | Type                       | Required | Description                                                                 |
-|:-----------------------|:---------------------------|:---------|:----------------------------------------------------------------------------|
-| `product_id`           | String                     | **Yes**  | The Shopify Product ID (e.g., `10105035653433`) or GID.                     |
-| `title`                | String*                    | No       | The public title of the product.                                            |
-| `description_html`     | String*                    | No       | The product description in HTML format.                                     |
-| `type`                 | String*                    | No       | Product category (e.g., "Flowers", "Greenery").                             |
-| `published_status`     | String*                    | No       | Set to `ACTIVE` or `DRAFT`.                                                 |
-| `images`               | Array[Str]*                | No       | A list of direct image URLs. **Warning:** This replaces all current images. |
-| `sku`                  | String*                    | No       | Vendor identifier for referencing product attributes in the future          |
-| `price`                | String*                    | No       | Vendor price of the product                                                 |
-| `inventory_quantities` | Array[Inventory Quantity]* | No       | Array of inventory amounts per location                                     |
-| `metafields`           | Object*                    | No       | Custom attributes (specifications, origins, etc.).                          |
+| Field                  | Type                       | Required | Description                                                                                                 |
+|:-----------------------|:---------------------------|:---------|:------------------------------------------------------------------------------------------------------------|
+| `product_id`           | String*                    | No       | The Shopify Product ID (e.g., `10105035653433`) or GID.                                                     |
+| `title`                | String*                    | No       | The public title of the product.                                                                            |
+| `description_html`     | String*                    | No       | The product description in HTML format.                                                                     |
+| `type`                 | String*                    | No       | Product category (e.g., "Flowers", "Greenery").                                                             |
+| `published_status`     | String*                    | No       | Set to `ACTIVE` or `DRAFT`.                                                                                 |
+| `images`               | Array[Str]*                | No       | A list of direct image URLs. **Warning:** This replaces all current images.                                 |
+| `sku`                  | String*                    | No       | Vendor identifier for referencing product attributes in the future. **Needed if product_id is not present** |
+| `price`                | String*                    | No       | Vendor price of the product                                                                                 |
+| `inventory_quantities` | Array[Inventory Quantity]* | No       | Array of inventory amounts per location                                                                     |
+| `metafields`           | Object*                    | No       | Custom attributes (specifications, origins, etc.).                                                          |
 
 ---
 
@@ -147,7 +151,15 @@ When updating metafields be sure to include all fields already tied to the produ
 ---
 
 ## 6. Response Codes & Troubleshooting
- - **200 OK:** The product update and all background tasks (inventory/media) succeeded.
+### Success
+**200 OK:** The product update and all background tasks (inventory/media) succeeded. **Includes ProductID**
+```json
+{
+    "productId": "gid://shopify/Product/10109657612601",
+    "result": "update success"
+}
+```
+### Fail
  - **400 Bad Request:** Malformed JSON or missing product_id.
  - **401 Unauthorized:** Credentials missing or vendor context not found.
  - **403 Forbidden:** You do not have ownership of this product_id.

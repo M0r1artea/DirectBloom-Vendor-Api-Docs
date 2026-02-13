@@ -161,7 +161,7 @@ When updating metafields be sure to include all fields already tied to the produ
 **200 OK:** The product update and all background tasks (inventory/media) succeeded. **Includes ProductID**
 ```json
 {
-    "productId": "gid://shopify/Product/10109657612601",
+    "productId": "gid://shopify/Product/10109657612601", // you can use this string or just 10109657612601 for future updates
     "result": "update success"
 }
 ```

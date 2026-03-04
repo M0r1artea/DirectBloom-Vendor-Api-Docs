@@ -9,7 +9,7 @@ This API allows vendors to add products to the Shopify catalog.
 
 ## 1. Authentication
 All requests must be made via an authorized gateway. Your `vendor_name` is automatically extracted from your API credentials. All created products through this request will be mapped to your vendor account, ensuring purchase updates.
-Email `david@devmercs.com` for your access token.
+Email `david@devmercs.com` for your access token. You will need different access tokens for test and prod
 
 :::warning
 These service are currently under development and subject to change. Any changes to the services will immediately be reflected here until 1st prod launch
@@ -19,7 +19,9 @@ These service are currently under development and subject to change. Any changes
 
 ## 2. Endpoint Specifications
 - **Method:** `POST`
-- **Url:** `https://44s4ng9bf6.execute-api.us-east-1.amazonaws.com/v1/product`
+- **Url:**
+    - **Prod:** `https://44s4ng9bf6.execute-api.us-east-1.amazonaws.com/v1/product`
+    - **Test:** `https://n1kbbms8gj.execute-api.us-east-1.amazonaws.com/v1/product`
 - **Content-Type:** `application/json`
 - **Header:** `x-api-key: {accessToken}`
 

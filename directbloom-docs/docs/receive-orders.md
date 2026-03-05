@@ -79,6 +79,7 @@ DIRECTBLOOM PITTSBURGH
   },
   "shipping_method": {
     "name": "FEDEX_2_DAY",
+    "carrier": "FedEx",
     "account": "116782936",
     "hold_at_location": "N",
     "service_type": "1",
